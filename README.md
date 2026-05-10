@@ -12,7 +12,7 @@
 
 # 
 
-# !\[App Screenshot](./Screenshot%202026-05-10%20124223.png)
+# !\[App Screenshot](./app-image.png)
 
 # 
 
