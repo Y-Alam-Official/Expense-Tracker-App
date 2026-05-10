@@ -1,0 +1,793 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>528</height>
+   </rect>
+  </property>
+  <property name="palette">
+   <palette>
+    <active>
+     <colorrole role="Button">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>220</red>
+        <green>220</green>
+        <blue>220</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>220</red>
+        <green>220</green>
+        <blue>220</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>220</red>
+        <green>220</green>
+        <blue>220</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </active>
+    <inactive>
+     <colorrole role="Button">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>220</red>
+        <green>220</green>
+        <blue>220</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>220</red>
+        <green>220</green>
+        <blue>220</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>220</red>
+        <green>220</green>
+        <blue>220</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </inactive>
+    <disabled>
+     <colorrole role="Button">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>220</red>
+        <green>220</green>
+        <blue>220</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>220</red>
+        <green>220</green>
+        <blue>220</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>220</red>
+        <green>220</green>
+        <blue>220</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </disabled>
+   </palette>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* صرف ان ناموں والے لیبلز پر اسٹائل لگے گا */
+#lblDate, #lblDay, #lblCategory, #lblAmount, #lblDescription {
+    color: #2f3640;             /* گہرا سرمئی ٹیکسٹ */
+    background: transparent;    /* اس سے مین ونڈو کا کلر خراب نہیں ہوگا */
+    border: 1px solid #000000;  /* کالی بارڈر */
+    border-radius: 4px;         
+    padding: 3px 8px;           
+    font-weight: bold;          
+}
+
+/* اگر آپ چاہتے ہیں کہ بارڈر کے اندر تھوڑا ہلکا سفید رنگ ہو تو اسے استعمال کریں */
+/* ورنہ اوپر والا 'transparent' بہترین ہے */</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>210</y>
+      <width>971</width>
+      <height>381</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>381</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">/* یہ پوری ونڈو کا بیک گراؤنڈ رنگ سیٹ کرے گا */
+QMainWindow {
+    background-color: rgb(170, 170, 0); 
+}
+
+/* یہ صرف ٹیبل کے ہیڈر (Date, Day, etc.) کا رنگ بدلے گا */
+QHeaderView::section {
+    background-color: #2c3e50; /* گہرا نیلا رنگ */
+    color: white;               /* سفید لکھائی */
+    padding: 4px;
+    border: 1px solid #6c7a89;
+}
+
+/* یہ باقی ٹیبل کو سفید رکھے گا */
+QTableWidget {
+    background-color: white;
+}</string>
+    </property>
+    <property name="selectionBehavior">
+     <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+    </property>
+    <column>
+     <property name="text">
+      <string>Date</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Day</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Category</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Amount</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Description</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QLineEdit" name="txtday">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>70</y>
+      <width>113</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit, QComboBox, QDateEdit {
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    padding: 2px;
+    background-color: #ffffff;
+    selection-background-color: #2980b9;
+}</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="txtamount">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>100</y>
+      <width>113</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit, QComboBox, QDateEdit {
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    padding: 2px;
+    background-color: #ffffff;
+    selection-background-color: #2980b9;
+}</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblDate">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>61</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(170, 170, 127);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>Date</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblDay">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>70</y>
+      <width>51</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(170, 170, 127);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>Day</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblCategory">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>130</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(170, 170, 127);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>Category</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblAmount">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>100</y>
+      <width>71</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(170, 170, 127);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>Amount</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnadd">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>190</y>
+      <width>91</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 170, 0);
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>Add Expense</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_welcome">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>10</y>
+      <width>451</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>18</pointsize>
+      <italic>false</italic>
+      <bold>true</bold>
+      <underline>false</underline>
+      <strikeout>false</strikeout>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(170, 170, 0);
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string> WELCOME TO EXPENSE TRACKER</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_delete">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>140</y>
+      <width>91</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(170, 0, 0);
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>Delete Expense</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblTotal">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>170</y>
+      <width>331</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+color: rgb(0, 0, 255);
+font-weight:bold;</string>
+    </property>
+    <property name="text">
+     <string>Total =0</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnSearch">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>80</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 127);
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>Search</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnShowAll">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>110</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(170, 170, 127);
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>Show All</string>
+    </property>
+   </widget>
+   <widget class="QDateEdit" name="dateSearch">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>50</y>
+      <width>110</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit, QComboBox, QDateEdit {
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    padding: 2px;
+    background-color: #ffffff;
+    selection-background-color: #2980b9;
+}</string>
+    </property>
+    <property name="displayFormat">
+     <string>dd/MM/yyyy</string>
+    </property>
+    <property name="calendarPopup">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QDateEdit" name="dateInput">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>40</y>
+      <width>110</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit, QComboBox, QDateEdit {
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    padding: 2px;
+    background-color: #ffffff;
+    selection-background-color: #2980b9;
+}</string>
+    </property>
+    <property name="readOnly">
+     <bool>false</bool>
+    </property>
+    <property name="calendarPopup">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboCategory">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>130</y>
+      <width>111</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit, QComboBox, QDateEdit {
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    padding: 2px;
+    background-color: #ffffff;
+    selection-background-color: #2980b9;
+}</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>Food</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Transport</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Bills</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Shopping</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Health</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Education</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Entertainment</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Others</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLineEdit" name="txtnote">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>160</y>
+      <width>111</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit, QComboBox, QDateEdit {
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    padding: 2px;
+    background-color: #ffffff;
+    selection-background-color: #2980b9;
+}</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblDescription">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>160</y>
+      <width>91</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(170, 170, 127);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>Description</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnFilterDay">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>50</y>
+      <width>111</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #3498db; 
+color: white; 
+border-radius: 5px; 
+font-weight: bold;</string>
+    </property>
+    <property name="text">
+     <string>Specific Day</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnFilterWeek">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>80</y>
+      <width>111</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #2ecc71; 
+color: white; 
+border-radius: 5px; 
+font-weight: bold;</string>
+    </property>
+    <property name="text">
+     <string>Specific Week</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnFilterMonth">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>110</y>
+      <width>111</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #9b59b6; 
+color: white; 
+border-radius: 5px; 
+font-weight: bold;</string>
+    </property>
+    <property name="text">
+     <string>Specific Month</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnHighestCategory">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>140</y>
+      <width>111</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #f39c12; 
+color: white; 
+font-weight: bold; 
+border-radius: 5px;</string>
+    </property>
+    <property name="text">
+     <string>Highest Expense</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnSetLimit">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>50</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #2e86de; /* خوبصورت نیلے رنگ کا شیڈ */
+    color: white;
+    border-radius: 10px;
+    padding: 8px;
+    font-weight: bold;
+    font-size: 13px;
+    border: 1px solid #2471a3;
+}
+
+QPushButton:hover {
+    background-color: #54a0ff; /* ماؤس اوپر لانے پر ہلکا نیلا */
+}
+
+QPushButton:pressed {
+    background-color: #2980b9; /* کلک کرنے پر گہرا نیلا */
+}</string>
+    </property>
+    <property name="text">
+     <string>Set Daily Limit</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblCurrentLimit">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>100</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+    color: #2c3e50; /* ٹیکسٹ کا رنگ */
+    background-color: #f1f2f6; /* ہلکا سرمئی بیک گراؤنڈ */
+    border: 2px solid #2e86de; /* بٹن سے میچ کرتا ہوا نیلا بارڈر */
+    border-radius: 8px;
+    padding: 5px;
+    font-weight: bold;
+}</string>
+    </property>
+    <property name="text">
+     <string>Daily Limit</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>18</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
