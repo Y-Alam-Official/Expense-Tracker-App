@@ -16,12 +16,6 @@ You can try the app without installing any coding software.
 2. **Extract** the contents of the zip folder.
 3. Double-click on the **.exe** file to run the app.
 
-<<<<<<< HEAD
----
-=======
-# ![App Screenshot](app-image.png)
->>>>>>> edaca9735b98002b4a25b0ce814845258f0fd666
-
 ## ⭐ Support the Project
 If you like this app and find it helpful, please consider giving this repository a **Star**! It helps others discover my work.
 
