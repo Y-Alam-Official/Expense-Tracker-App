@@ -35,6 +35,10 @@
 # 
 
 # \---
+---
+
+## ⭐ Support the Project
+If you like this app and find it helpful, please consider giving this repository a **Star**! It helps others discover my work.
 
 # \*Developed by Y-Alam-Official\*
 
