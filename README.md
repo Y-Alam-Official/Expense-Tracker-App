@@ -12,7 +12,7 @@
 
 # 
 
-# !\[App Screenshot](./app-image.png)
+# ![App Screenshot](app-image.png)
 
 # 
 
